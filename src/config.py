@@ -35,10 +35,8 @@ class Config(object):
         # data is of size [H,W,4] (RGB + instance label)
         # if self.mode == 'class_pcam', data is of size [(H*W*C)+1],
         # where the final value is the class label
-        self.train_dir = [
-            '/media/simon/Storage 1/Data/Nuclei/patches/kumar/train/']
-        self.valid_dir = [
-            '/media/simon/Storage 1/Data/Nuclei/patches/kumar/valid/']
+        self.train_dir = ['/content/train/']
+        self.valid_dir = ['/content/valid/']
 
         # nr of processes for parallel processing input
         self.nr_procs_train = 8
@@ -46,7 +44,7 @@ class Config(object):
 
         exp_id = 'v1.0'
         # loading chkpts in tensorflow, the path must not contain extra '/'
-        self.log_path = '/media/simon/Storage 1/dsf-cnn/checkpoints/'  # log root path
+        self.log_path = '/content/checkpoints/'  # log root path
         self.save_dir = '%s/%s/%s_%s_%s' % (
             self.log_path, self.model_mode,
             self.filter_type, self.nr_orients, exp_id)  # log file destination
@@ -58,11 +56,10 @@ class Config(object):
 
         # paths to files for inference. Note, for PCam we use the original .h5 file.
         self.inf_imgs_ext = '.tif'
-        self.inf_data_list = [
-            '/media/simon/Storage 1/Data/Nuclei/kumar/test/Images/'
+        self.inf_data_list = ['/content/test/Images/'
         ]
 
-        output_root = '/media/simon/Storage 1/output/'
+        output_root = '/content/output/'
         # log file destination
         self.inf_output_dir = '%s/%s_%s/' % (output_root,
                                              self.filter_type, self.nr_orients)
